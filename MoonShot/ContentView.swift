@@ -11,13 +11,14 @@ struct ContentView: View {
     let columns = [GridItem(.adaptive(minimum: 150))]
     var body: some View {
         let missions: [Mission] = Bundle.main.decode("missions.json")
+        let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
         
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(missions) { mission in
                         NavigationLink {
-                            Text("Detail View")
+                            MissionView(mission: mission, astronauts: astronauts)
                         } label: {
                             VStack {
                                 Image(mission.image)
