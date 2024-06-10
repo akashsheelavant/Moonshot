@@ -33,6 +33,8 @@ struct MissionView: View {
                         
                     }
                     .padding(.top)
+                Text(mission.formattedLaunchDateLongFormat)
+                    .padding(.top)
                 
                 VStack(alignment: .leading) {
                     Rectangle()
